@@ -1,0 +1,25 @@
+.Player {
+  &__TrackInfo {
+    height: 100px;
+    display: flex;
+  }
+
+  &__play,
+  &__pause {
+    width: 100px;
+    margin-right: 1rem;
+    flex-grow: 0;
+    flex-shrink: 0;
+  }
+
+  &__progress {
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    height: 1rem;
+    margin: 1rem 0;
+  }
+
+  &__progressBar {
+    background: rgba(255, 255, 255, 0.6);
+    height: 100%;
+  }
+}

@@ -1,0 +1,60 @@
+.TrackInfo {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  height: 100%;
+  overflow: scroll;
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 1rem;
+    justify-content: center;
+    white-space: nowrap;
+  }
+
+  &__image {
+    height: 100%;
+    width: auto;
+  }
+
+  &__artist,
+  &__track {
+    font-size: 1.5rem;
+  }
+
+  &__album {
+    font-size: 0.75rem;
+  }
+
+  &--flat &__info {
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+  }
+
+  &--flat &__artist {
+    font-size: 1rem;
+    &:after {
+      content: '//';
+      margin-left: 0.5rem;
+      margin-right: 0.5rem;
+    }
+  }
+
+  &--flat &__track {
+    font-size: 1rem;
+    margin-right: 0.5rem;
+  }
+
+  &--flat &__album {
+    display: none;
+
+    &:before {
+      content: '(';
+    }
+    &:after {
+      content: ')';
+    }
+  }
+}

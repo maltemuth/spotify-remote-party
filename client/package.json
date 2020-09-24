@@ -1,0 +1,45 @@
+{
+  "name": "spotify-remote-party-client",
+  "version": "0.0.0",
+  "author": "Malte Muth",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build": "webpack --env.production",
+    "start": "webpack-dev-server --open"
+  },
+  "dependencies": {
+    "parcel-bundler": "^1.12.4",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "socket.io-client": "^2.3.0",
+    "spotify-remote-party-library": "*"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/preset-env": "^7.9.0",
+    "@babel/preset-react": "^7.9.1",
+    "@babel/preset-typescript": "^7.9.0",
+    "@types/react": "^16.9.49",
+    "@types/react-dom": "^16.9.8",
+    "@types/socket.io-client": "^1.4.33",
+    "@typescript-eslint/eslint-plugin": "^4.1.1",
+    "@typescript-eslint/parser": "^4.1.1",
+    "eslint": "^7.9.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.20.6",
+    "eslint-plugin-react-hooks": "^4.1.2",
+    "node-sass": "^4.14.1",
+    "parcel": "^2.0.0-nightly.154",
+    "prettier": "^2.1.2",
+    "sass": "^1.26.11",
+    "socket.io-client": "^2.3.0",
+    "tsc": "^1.20150623.0",
+    "typescript": "^4.0.3"
+  }
+}

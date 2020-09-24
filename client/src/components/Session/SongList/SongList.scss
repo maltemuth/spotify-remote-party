@@ -1,0 +1,19 @@
+.SongList {
+  &__trackList {
+    margin: 0;
+    padding: 0;
+  }
+
+  &__track {
+    list-style: none;
+    height: 3rem;
+    margin-top: 1rem;
+    display: flex;
+  }
+
+  &__play,
+  &__queue {
+    width: 3rem;
+    margin-right: 1rem;
+  }
+}
