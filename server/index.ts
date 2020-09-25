@@ -21,7 +21,7 @@ const restApi = express();
 const httpServer = http.createServer(restApi);
 const socketApi = socketIo(httpServer);
 
-const port = parseInt(process.env.REST_API_PORT || '8000', 10);
+const port = parseInt(process.env.PORT || '8000', 10);
 const HOST = process.env.HOST || 'http://localhost:8000';
 
 const clientId = process.env.CLIENT_ID || 'ab08bf605a5340ddb4c81a429a695028';
