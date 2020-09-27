@@ -1,9 +1,12 @@
-import sdkReady from './playerSDK';
+import sdkReady from './sdkReady';
 import createSDKPlayer from './createSDKPlayer';
 import { Player } from './Player';
 
 let player: Player | null = null;
 
+/**
+ * returns the global Player instance and creates it if needed
+ */
 const getPlayer = async (): Promise<Player> => {
   return new Promise(resolve => {
     if (!player) {

@@ -11,7 +11,6 @@ import stop from '../../api/player/stop';
 import { Profile } from '../../api/Profile';
 import { WebPlaybackState } from '../../api/WebPlaybackState';
 import SongList from './SongList/SongList';
-import ApiWrapper from './Api/Api';
 import Navbar from './Navbar/Navbar';
 import Player from './Player/Player';
 import getSocket from '../../api/socket/getSocket';
@@ -99,21 +98,19 @@ const Session: React.FunctionComponent<{ identity: Identity }> = ({
     }
   }, [uri]);
   return (
-    <ApiWrapper>
-      <div className="Session">
-        <Navbar profile={profile} controller={controller} />
-        <section>
-          <Player
-            playbackState={playbackState}
-            onPlay={() => uri && play(uri)}
-            onPause={() => stop()}
-          />
-        </section>
-        <section>
-          <SongList onTrackSelected={newUri => setUri(newUri)} />
-        </section>
-      </div>
-    </ApiWrapper>
+    <div className="Session">
+      <Navbar profile={profile} controller={controller} />
+      <section>
+        <Player
+          playbackState={playbackState}
+          onPlay={() => uri && play(uri)}
+          onPause={() => stop()}
+        />
+      </section>
+      <section>
+        <SongList onTrackSelected={newUri => setUri(newUri)} />
+      </section>
+    </div>
   );
 };
 

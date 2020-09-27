@@ -2,18 +2,28 @@ import { detectIdentity } from '../model/identity/detectIdentity';
 import getToken from './getToken';
 import { Player as SpotifyPlayer } from './Player';
 
+// these types make the TS type annotation a little more readable,
+// but serve no other purpose than to tell typescript what's going on.
 type TokenCallback = (token: string) => void;
 type PlayerConstructorOptions = {
   name: string;
   getOAuthToken: (callback: TokenCallback) => void;
 };
 
+/**
+ * TS declaration for the globally-injected SDK
+ */
 declare namespace Spotify {
   class Player extends SpotifyPlayer {
     constructor(options: PlayerConstructorOptions);
   }
 }
 
+/**
+ * creates a Spotify Web Playback SDK Player object,
+ * and resolves with it once done.
+ * @param name The name for the player - will show up in Spotify's device list
+ */
 const createSDKPlayer = (
   name = 'Remote Party Web Player'
 ): Promise<SpotifyPlayer> => {
@@ -24,7 +34,7 @@ const createSDKPlayer = (
       getToken(detectIdentity()!).then(token => callback(token)),
   });
 
-  // Error handling
+  // for better understanding during development, console.error any error message
   player.addListener('initialization_error', ({ message }) => {
     console.error(message);
   });
@@ -38,18 +48,18 @@ const createSDKPlayer = (
     console.error(message);
   });
 
-  // Playback status updates
+  // playback status updates are also logged for better tracing
   player.addListener('player_state_changed', state => {
     console.log(state);
   });
 
-  // Not Ready
+  // again, log out when a device goes offline.
+  // does this even trigger for devices beside the local player?
   /* eslint-disable-next-line camelcase */
   player.addListener('not_ready', ({ device_id }) => {
     console.log('Device ID has gone offline', device_id);
   });
 
-  // Connect to the player!
   player.connect();
 
   return new Promise(resolve => {

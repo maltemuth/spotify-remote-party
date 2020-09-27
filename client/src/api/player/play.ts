@@ -1,6 +1,11 @@
 import getPlayer from '../getPlayer';
 
-const play = async (uri: string) => {
+/**
+ * starts local playback of the given spotify track uri
+ * the returned promise resolves when playback has started, but contains no other info
+ * @param uri
+ */
+const play = async (uri: string): Promise<void> => {
   const {
     _options: { id, getOAuthToken },
   } = await getPlayer();

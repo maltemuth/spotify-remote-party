@@ -2,6 +2,11 @@ import { detectIdentity } from '../model/identity/detectIdentity';
 import getToken from './getToken';
 import { Track } from './Track';
 
+/**
+ * queries the Spotify API for tracks matching the searchTerm,
+ * and resolves with the tracks
+ * @param searchTerm
+ */
 const findTracks = (searchTerm: string): Promise<Track[]> =>
   getToken(detectIdentity()!)
     .then(token => {

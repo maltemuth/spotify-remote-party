@@ -2,6 +2,10 @@ import { Identity } from 'spotify-remote-party-library/model/identity/Identity';
 import getToken from './getToken';
 import { Profile } from './Profile';
 
+/**
+ * queries the Spotify API for profile data for the local token
+ * @param identity
+ */
 const getProfile = (identity: Identity): Promise<Profile> =>
   getToken(identity)
     .then(token =>

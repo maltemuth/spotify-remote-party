@@ -1,5 +1,8 @@
 import { WebPlaybackState } from './WebPlaybackState';
 
+/**
+ * API description for the Spotify Web Playback SDK Player API
+ */
 /* eslint-disable-next-line import/prefer-default-export */
 export declare class Player {
   _options: {
